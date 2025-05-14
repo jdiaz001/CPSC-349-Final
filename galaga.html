@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jose Diaz - Project: Galaga</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+     <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Jose Diaz</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                     <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="project-detail" class="project-detail-section section reveal container my-5">
+            <h1 class="mb-4">Galaga Clone</h1>
+            <div class="row g-4 mb-4">
+                 <div class="col-md-8">
+                     <h2 class="mb-3">Description</h2>
+                     <p>Galaga is famous for enemies' dramatic entrance. The enemies swoop in from off screen along paths that curve and 
+                        circle on screen then disappear off screen. The aliens return on screen and create a grid-like pattern at the top 
+                        of the screen facing off against the player. Regularly, groups of enemies dive towards the player and shoot. 
+                        The goal of the game is to score the highest score possible before losing all three lives. If the player defeats 
+                        all the enemies in a given scene, then the scene is completed and a new scene begins with new enemies.
+                        </p>
+
+                     <h2 class="mt-4 mb-3">Challenges</h2>
+                     <ol>
+                        <li>Challenge: Establishing a functional Pygame application with different game states (screens).<br><br>
+                            Solution: Set up the main game loop, Pygame initialization, and display in galaga.py.
+                            Implemented a scene management system with a base Scene class and a SceneManager class (scene.py, scenemanager.py) 
+                            to handle transitions between TitleScene, GameScene, GameOverScene, and LeaderboardScene.
+                            Centralized game assets (colors, sound paths, music paths) in galaga_asset_dict.py for easy management.<br><br>
+                        </li>
+
+                        <li>Challenge: Creating an interactive player character with movement, shooting, and a life system.<br><br>
+                            Solution: Developed a Player class with attributes for position, speed, and lives. Implemented movement logic
+                            controlled by arrow keys. Added a shooting mechanism, creating bullet objects managed in game.py
+                            Designed a triangular player ship rendered with pygame.draw.polygon. Created a visual death animation 
+                            and a respawn sequence upon losing a life.<br><br>
+                        </li>
+                        <li>Challenge: Robustness of file I/O for the leaderboard.<br><br>
+                            Solution: Enhanced _load_scores methods in GameOverScene and LeaderboardScene with comprehensive try-except blocks 
+                            to handle potential issues like FileNotFoundError, EOFError, pickle.UnpicklingError, and ValueError, preventing 
+                            crashes and ensuring smoother user experience even if the save file was problematic. Added validation for score 
+                            entry format during rendering.
+                        </li>
+                     </ol>
+                     <h2 class="mt-4 mb-3">Outcomes</h2>
+                      <ol>
+                        <li>Successfully built a Pygame application with a clear, modular structure. This includes a main game loop 
+                            (galaga.py), a centralized asset dictionary (galaga_asset_dict.py), and a scene management system 
+                            (scene.py, scenemanager.py). This system now effectively manages transitions between different game states: 
+                            the Title screen, the main Game screen, the Game Over screen, and a Leaderboard.</li>
+                        <li>A fully functional player (player.py) was created. The player ship can be controlled, can shoot projectiles, 
+                            has a limited number of lives, and displays a distinct death animation sequence before respawning.</li>
+                        <li>Developed an Enemy class and an EnemyManager (enemy.py, enemymanager.py) that bring diverse enemy actions to life. 
+                            Enemies now perform an initial "parade" movement into formation, hold their positions, execute various diving attack 
+                            patterns (linear, wave, targeting the player), shoot at the player, and have their own death animations.</li>
+                        <li>A complete leaderboard system was implemented. The GameOverScene now prompts players to enter their name if 
+                            they achieve a high score, and these scores (name, date, score) are saved to a file (leaderboard.pkl). The 
+                            LeaderboardScene loads and displays these top scores. Robust error handling was added to manage potential issues with 
+                            the leaderboard file (e.g., if it's missing or corrupted), preventing game crashes.</li>
+                       </ol> 
+                 </div>
+                 <div class="col-md-4">
+                     <img src="assets/galaga2.jpg" class="img-fluid rounded mb-3" alt="Galaga Screenshot 1">
+                     <img src="assets/galaga3.jpg" class="img-fluid rounded mb-3" alt="Gagala Screenshot 2">
+                 </div>
+            </div>
+
+            <h2 class="mb-3">Technologies Used</h2>
+            <ul class="list-inline">
+                <li class="list-inline-item"><span class="badge bg-secondary">Python</span></li>
+                <li class="list-inline-item"><span class="badge bg-secondary">Pygame</span></li>
+                <li class="list-inline-item"><span class="badge bg-secondary">VS Code</span></li>
+            </ul>
+
+            <h2 class="mt-4 mb-3">Links</h2>
+            <p>
+                <a href="https://github.com/mshafae-spring-2025/cpsc-386-06-galaga-jdiaz001.git" target="_blank" class="btn btn-secondary">GitHub Repository</a>
+                 </p>
+
+            <p class="mt-4"><a href="projects.html">← Back to Projects</a></p>
+        </section>
+    </main>
+
+     <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Jose Diaz. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

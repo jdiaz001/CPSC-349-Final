@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jose Diaz - Project: TextBookTrade</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+     <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Jose Diaz</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                     <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="project-detail" class="project-detail-section section reveal container my-5">
+            <h1 class="mb-4">TextBookTrade</h1>
+            <div class="row g-4 mb-4">
+                 <div class="col-md-8">
+                     <h2 class="mb-3">Description</h2>
+                     <p>TextbookTrade is a full-stack web application that allows university students to buy, sell, and trade textbooks 
+                        in a streamlined and user-friendly environment. The platform features secure user authentication, listing management 
+                        with image uploads, and a built-in messaging system for direct communication between users.</p>
+
+                    <h2 class="mt-4 mb-3">Challenges</h2>
+                     <ol>
+                        <li>Challenge: Allowing users to upload and view textbook images securely without writing them to disk.<br><br>
+                            Solution: Stored image data in MySQL using a BLOB field. Used base64 encoding to convert image binary 
+                            data into a format embeddable in HTML. Created a @app.template_filter('b64encode') Jinja2 filter to 
+                            render images in templates.<br><br>
+                        </li>
+                        <li>Challenge: Enabling private messaging between users with proper access control.<br><br>
+                            Solution: Built a messaging model and message route that checks login status. Displayed messages 
+                            on the profile page, and created a dedicated message view page for reading individual messages.<br><br>
+                        </li>
+                        <li>Challenge:  Initially, the textbook table didn’t support multiple images, making it hard to associate 
+                            several pictures with one textbook.<br><br>
+                            Solution: Introduced a separate TextBookPictures table with a foreign key to the textbook ID. This allowed 
+                            multiple images per listing and more flexible image management.
+                        </li>
+                     </ol>
+                     <h2 class="mt-4 mb-3">Outcomes</h2>
+                      <ol>
+                        <li>Real-Time Messaging Between Users.</li>
+                        <li>Dynamic Image Handling.</li>
+                        <li>Smooth User Experience.</li>
+                        <li>Seamless Textbook Listing System.</li>
+                        <li>Full-Featured User Authentication.</li>
+                       </ol> 
+                 </div>
+                 <div class="col-md-4">
+                     <img src="assets/textbooktrade2.jpg" class="img-fluid rounded mb-3" alt="textbooktrade Screenshot 1">
+                     <img src="assets/textbooktrade3.jpg" class="img-fluid rounded mb-3" alt="TextBookTrade Screenshot 2">
+                 </div>
+            </div>
+
+            <h2 class="mb-3">Technologies Used</h2>
+            <ul class="list-inline">
+                <li class="list-inline-item"><span class="badge bg-secondary">Flask+JWT</span></li>
+                <li class="list-inline-item"><span class="badge bg-secondary">Python</span></li>
+                <li class="list-inline-item"><span class="badge bg-secondary">JavaScript</span></li>
+                <li class="list-inline-item"><span class="badge bg-secondary">HTML 5</span></li>
+                <li class="list-inline-item"><span class="badge bg-secondary">Jinja2</span></li>
+                <li class="list-inline-item"><span class="badge bg-secondary">SQLAlchemy</span></li>
+                <li class="list-inline-item"><span class="badge bg-secondary">VS Code</span></li>
+                <li class="list-inline-item"><span class="badge bg-secondary">Werkzeug</span></li>
+                <li class="list-inline-item"><span class="badge bg-secondary">CSS</span></li>
+            </ul>
+            <p class="mt-4"><a href="projects.html">← Back to Projects</a></p>
+        </section>
+    </main>
+
+     <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Jose Diaz. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
